@@ -6,25 +6,32 @@ public class Building {
     private int length;
     private int floors;
     private int undergroundFloors;
-    private int parkingLevel;
+
     private int officeLevel;
+    private int parkingLevel;
     private int serviceLevel;
     private int gastroLevel;
     private int elevator;
+    private int potentialWorkers;
+    private int potentialBuildingCost;
+    private int potentialMonthlyCharges;
 
     public Building() {
     }
 
-    public Building(int width, int length, int floors, int undergroundFloors, int parkingLevel, int officeLevel, int serviceLevel, int gastroLevel, int elevator) {
+    public Building(int width, int length, int floors, int undergroundFloors, int officeLevel, int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int potentialWorkers, int potentialBuildingCost, int potentialMonthlyCharges) {
         this.width = width;
         this.length = length;
         this.floors = floors;
         this.undergroundFloors = undergroundFloors;
-        this.parkingLevel = parkingLevel;
         this.officeLevel = officeLevel;
+        this.parkingLevel = parkingLevel;
         this.serviceLevel = serviceLevel;
         this.gastroLevel = gastroLevel;
         this.elevator = elevator;
+        this.potentialWorkers = potentialWorkers;
+        this.potentialBuildingCost = potentialBuildingCost;
+        this.potentialMonthlyCharges = potentialMonthlyCharges;
     }
 
     public int getWidth() {
@@ -59,20 +66,20 @@ public class Building {
         this.undergroundFloors = undergroundFloors;
     }
 
-    public int getParkingLevel() {
-        return parkingLevel;
-    }
-
-    public void setParkingLevel(int parkingLevel) {
-        this.parkingLevel = parkingLevel;
-    }
-
     public int getOfficeLevel() {
         return officeLevel;
     }
 
     public void setOfficeLevel(int officeLevel) {
         this.officeLevel = officeLevel;
+    }
+
+    public int getParkingLevel() {
+        return parkingLevel;
+    }
+
+    public void setParkingLevel(int parkingLevel) {
+        this.parkingLevel = parkingLevel;
     }
 
     public int getServiceLevel() {
@@ -97,5 +104,29 @@ public class Building {
 
     public void setElevator(int elevator) {
         this.elevator = elevator;
+    }
+
+    public int getPotentialWorkers() {
+        return potentialWorkers;
+    }
+
+    public void setPotentialWorkers(int potentialWorkers) {
+        this.potentialWorkers = potentialWorkers;
+    }
+
+    public int getPotentialBuildingCost() {
+        return potentialBuildingCost;
+    }
+
+    public void setPotentialBuildingCost(int potentialBuildingCost) {
+        this.potentialBuildingCost = potentialBuildingCost;
+    }
+
+    public int getPotentialMonthlyCharges() {
+        return potentialMonthlyCharges;
+    }
+
+    public void setPotentialMonthlyCharges(int potentialMonthlyCharges) {
+        this.potentialMonthlyCharges = potentialMonthlyCharges;
     }
 }
