@@ -146,6 +146,31 @@ public class CostBuildingTest {
         assertEquals(costBuilding.calcCostMaterialAreaWalls(70,20,0), 9360);
     }
 
+    @Test public void testCostUndergroundLevel() throws Exception {
+        assertEquals(costBuilding.calcCostUndergroundLevel(50, 70,2), 518736);
+        assertEquals(costBuilding.calcCostUndergroundLevel(40, 20,5), 1176991);
+        assertEquals(costBuilding.calcCostUndergroundLevel(65, 95, 12), 2147483647);
+        try{
+            costBuilding.calcCostUndergroundLevel(20,20,-4);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostUndergroundLevel(20,-20,4);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostUndergroundLevel(-20,20,4);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        assertEquals(costBuilding.calcCostUndergroundLevel(12, 10,0), 0);
+    }
+
 
 
 

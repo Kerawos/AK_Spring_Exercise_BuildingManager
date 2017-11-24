@@ -26,7 +26,7 @@ public class CostBuilding {
         totalCost += calcCostOfInstallation(areaLevel);
         totalCost += calcCostMaterialFloor(areaLevel);
         totalCost += calcCostMaterialAreaWalls(width, length, floors);
-        totalCost += calcCostUndergroundLevel(undergroundFloors);
+        totalCost += calcCostUndergroundLevel(width, length, undergroundFloors);
         return totalCost;
     }
 
@@ -106,11 +106,22 @@ public class CostBuilding {
         return (((width*2) + (length*2)) * floors) * getCostMaterialWallPerMeter();
     }
 
-    public int calcCostUndergroundLevel(int undergroundFloors){
-        if (undergroundFloors<0){
+    public int calcCostUndergroundLevel(int width, int length, int undergroundFloors){
+        int areaLevel = width * length;
+        if (undergroundFloors<0 || areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
-        return (int) (undergroundFloors * getUndergroundLevelIndicator());
+        if (undergroundFloors==0){
+            return 0;
+        }
+        double potentialUndergroundCost = calcCostMaterialAreaWalls(width, length, 0) + calcCostMaterialFloor(areaLevel);
+        double fouCos = getUndergroundLevelIndicator();
+        for (int i = 1; i <= undergroundFloors; i++) {
+            potentialUndergroundCost*=fouCos;
+            fouCos*=getCostFoundationPerFloor();
+        }
+
+        return (int)potentialUndergroundCost;
     }
 
 
