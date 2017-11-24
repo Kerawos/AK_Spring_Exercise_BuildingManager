@@ -14,7 +14,7 @@ import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services.Conver
 public class BuildingCalculationController {
 
     private BuildingManager buildingManager = new BuildingManager();
-    private Converter converter;
+    private Converter converter = new Converter();
 
     @GetMapping("/build") public String buildingGet(Model model){
         model.addAttribute("userInput", new UserInput());
