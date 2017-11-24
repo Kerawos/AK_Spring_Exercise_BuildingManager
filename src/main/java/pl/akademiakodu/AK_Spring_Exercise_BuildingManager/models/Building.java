@@ -7,11 +7,17 @@ public class Building {
     private int floors;
     private int undergroundFloors;
 
+    private int totalBuildingArea;
     private int officeLevel;
     private int parkingLevel;
     private int serviceLevel;
     private int gastroLevel;
+
     private int elevator;
+    private int rooms;
+    private int straits;
+    private int toilets;
+
     private int potentialWorkers;
     private int potentialBuildingCost;
     private int potentialMonthlyCharges;
@@ -19,16 +25,20 @@ public class Building {
     public Building() {
     }
 
-    public Building(int width, int length, int floors, int undergroundFloors, int officeLevel, int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int potentialWorkers, int potentialBuildingCost, int potentialMonthlyCharges) {
+    public Building(int width, int length, int floors, int undergroundFloors, int totalBuildingArea, int officeLevel, int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int rooms, int straits, int toilets, int potentialWorkers, int potentialBuildingCost, int potentialMonthlyCharges) {
         this.width = width;
         this.length = length;
         this.floors = floors;
         this.undergroundFloors = undergroundFloors;
+        this.totalBuildingArea = totalBuildingArea;
         this.officeLevel = officeLevel;
         this.parkingLevel = parkingLevel;
         this.serviceLevel = serviceLevel;
         this.gastroLevel = gastroLevel;
         this.elevator = elevator;
+        this.rooms = rooms;
+        this.straits = straits;
+        this.toilets = toilets;
         this.potentialWorkers = potentialWorkers;
         this.potentialBuildingCost = potentialBuildingCost;
         this.potentialMonthlyCharges = potentialMonthlyCharges;
@@ -64,6 +74,14 @@ public class Building {
 
     public void setUndergroundFloors(int undergroundFloors) {
         this.undergroundFloors = undergroundFloors;
+    }
+
+    public int getTotalBuildingArea() {
+        return totalBuildingArea;
+    }
+
+    public void setTotalBuildingArea(int totalBuildingArea) {
+        this.totalBuildingArea = totalBuildingArea;
     }
 
     public int getOfficeLevel() {
@@ -104,6 +122,30 @@ public class Building {
 
     public void setElevator(int elevator) {
         this.elevator = elevator;
+    }
+
+    public int getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(int rooms) {
+        this.rooms = rooms;
+    }
+
+    public int getStraits() {
+        return straits;
+    }
+
+    public void setStraits(int straits) {
+        this.straits = straits;
+    }
+
+    public int getToilets() {
+        return toilets;
+    }
+
+    public void setToilets(int toilets) {
+        this.toilets = toilets;
     }
 
     public int getPotentialWorkers() {

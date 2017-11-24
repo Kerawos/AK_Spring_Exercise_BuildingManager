@@ -12,9 +12,12 @@ public class BuildingManager {
     private double elevatorNeedPerArea10 = 0.02;
     private double straitsNeedPerArea50 = 0.07;
     private double emptyAreaNeedPerArea = 0.25;
+    private double toiletNeedPerRoom = 0.05;
+    private int workerAreaNeed = 4;
     private int parkingNeedPerOfficeLevel = 3;
     private int servicesNeedPerOfficeLevel = 5;
     private int gastroNeedPerLevel = 7;
+
 
     public int calculateLevelArea(int width, int length){
         if (width<1 || length<1){
@@ -35,7 +38,7 @@ public class BuildingManager {
         return remainingSpace / getRoomSpace();
     }
 
-    public int elevatorNeeds(int levelArea, int floors){
+    public int needsElevator(int levelArea, int floors){
         if (floors==0){
             return 0;
         }
@@ -45,7 +48,7 @@ public class BuildingManager {
         return (int)(((double)levelArea/10) * getElevatorNeedPerArea10() + ((double)floors*getElevatorNeedPerLevel()));
     }
 
-    public int straitsNeed(int levelArea, int floors){
+    public int needsStraits(int levelArea, int floors){
         if (floors==0){
             return 0;
         }
@@ -55,30 +58,77 @@ public class BuildingManager {
         return (int)(((double)levelArea/50) * getStraitsNeedPerArea50() + ((double)floors * getElevatorNeedPerLevel()));
     }
 
-    public int parkingLevelNeed(int officeLevel){
-        if (officeLevel<1){
+    public int needsParkingLevel(int floors){
+        if (floors<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
 
-        return officeLevel / getParkingNeedPerOfficeLevel();
+        return floors / getParkingNeedPerOfficeLevel();
     }
 
-    public int serviceLevelNeed(int officeLevel){
+    public int needsServiceLevel(int officeLevel){
         if (officeLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return officeLevel / getServicesNeedPerOfficeLevel();
     }
 
-    public int gastroLevelNeed(int floors){
+    public int needGastroLevel(int floors){
         if (floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return floors / getGastroNeedPerLevel();
     }
 
-    public Building totalCostCalculator(int levelArea, int floors, int undergroundFlors){
+    public int needsToilets(int rooms){
+        return (int)(rooms * getToiletNeedPerRoom());
+    }
+
+    public int potentialWorkers(int rooms){
+        return rooms * getWorkerAreaNeed();
+    }
+
+    public int calcTotalBuildingArea(int width, int length, int floors){
+        if (floors<0){
+            throw new IllegalArgumentException("Arguments have to be greater than 0!");
+        }
+        if (floors==0){
+            return calculateLevelArea(width, length);
+        }
+        return calculateLevelArea(width, length) * floors;
+    }
+
+    public Building totalCostCalculator(int width, int length, int floors, int undergroundFloors){
+        int levelArea = calculateLevelArea(width, length);
+        Building building = new Building();
+        building.setWidth(width);
+        building.setLength(length);
+        building.setFloors(floors);
+        building.setUndergroundFloors(undergroundFloors);
+
+        building.setTotalBuildingArea(calcTotalBuildingArea(width, length, floors));
+        building.setParkingLevel(needsParkingLevel(floors));
+        building.setGastroLevel(needGastroLevel(floors));
+        building.setServiceLevel(needsServiceLevel(floors));
+        building.setOfficeLevel(floors - building.getParkingLevel() - building.getGastroLevel() - building.getServiceLevel());
+
+        building.setElevator(needsElevator(levelArea, floors));
+        building.setStraits(needsStraits(levelArea, floors));
+        int potentialToiletsInBuilding = 0;
+        int potentialRoomsInBuilding;
+        do {
+            potentialToiletsInBuilding++;
+            potentialRoomsInBuilding = roomCalculator(calculateLevelArea(width, length), building.getElevator(), potentialToiletsInBuilding, building.getStraits());
+        }while (levelArea - potentialRoomsInBuilding < getToiletsSpace() && needsToilets(potentialRoomsInBuilding)==potentialToiletsInBuilding);
+        building.setToilets(potentialToiletsInBuilding);
+        building.setRooms(potentialRoomsInBuilding);
+        building.setPotentialWorkers(potentialWorkers(building.getRooms()));
+
         return null;
+    }
+
+    public int totalFlors(int floors, int undergroundFloors){
+        return floors + undergroundFloors;
     }
 
 
@@ -129,5 +179,13 @@ public class BuildingManager {
 
     public int getGastroNeedPerLevel() {
         return gastroNeedPerLevel;
+    }
+
+    public double getToiletNeedPerRoom() {
+        return toiletNeedPerRoom;
+    }
+
+    public int getWorkerAreaNeed() {
+        return workerAreaNeed;
     }
 }

@@ -21,12 +21,12 @@ public class BuildingManagerTest {
     }
 
     @Test public void testElevatorNeed() throws Exception {
-        assertEquals(buildingManager.elevatorNeeds(3500, 8), 7);
-        assertEquals(buildingManager.elevatorNeeds(5200, 25), 10);
-        assertEquals(buildingManager.elevatorNeeds(1200, 5), 2);
-        assertEquals(buildingManager.elevatorNeeds(20, 0), 0);
+        assertEquals(buildingManager.needsElevator(3500, 8), 7);
+        assertEquals(buildingManager.needsElevator(5200, 25), 10);
+        assertEquals(buildingManager.needsElevator(1200, 5), 2);
+        assertEquals(buildingManager.needsElevator(20, 0), 0);
         try {
-            buildingManager.elevatorNeeds(-5,-4);
+            buildingManager.needsElevator(-5,-4);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
@@ -44,18 +44,18 @@ public class BuildingManagerTest {
     }
 
     @Test public void testStraitsNeed() throws Exception {
-        assertEquals(buildingManager.straitsNeed(3500, 8), 4);
-        assertEquals(buildingManager.straitsNeed(1200, 5), 1);
-        assertEquals(buildingManager.straitsNeed(4500, 33), 6);
-        assertEquals(buildingManager.straitsNeed(880, 0), 0);
+        assertEquals(buildingManager.needsStraits(3500, 8), 4);
+        assertEquals(buildingManager.needsStraits(1200, 5), 1);
+        assertEquals(buildingManager.needsStraits(4500, 33), 6);
+        assertEquals(buildingManager.needsStraits(880, 0), 0);
         try {
-            buildingManager.straitsNeed(345,-1);
+            buildingManager.needsStraits(345,-1);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
         try {
-            buildingManager.straitsNeed(0,4);
+            buildingManager.needsStraits(0,4);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
@@ -83,11 +83,11 @@ public class BuildingManagerTest {
     }
 
     @Test public void testParkingLevelNeed() throws Exception {
-        assertEquals(buildingManager.parkingLevelNeed(8), 2);
-        assertEquals(buildingManager.parkingLevelNeed(2), 0);
-        assertEquals(buildingManager.parkingLevelNeed(15), 5);
+        assertEquals(buildingManager.needsParkingLevel(8), 2);
+        assertEquals(buildingManager.needsParkingLevel(2), 0);
+        assertEquals(buildingManager.needsParkingLevel(15), 5);
         try {
-            buildingManager.parkingLevelNeed(-4);
+            buildingManager.needsParkingLevel(-4);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
@@ -95,11 +95,11 @@ public class BuildingManagerTest {
     }
 
     @Test public void testServiceLevelNeed() throws Exception {
-        assertEquals(buildingManager.serviceLevelNeed(8), 1);
-        assertEquals(buildingManager.serviceLevelNeed(2), 0);
-        assertEquals(buildingManager.serviceLevelNeed(15), 3);
+        assertEquals(buildingManager.needsServiceLevel(8), 1);
+        assertEquals(buildingManager.needsServiceLevel(2), 0);
+        assertEquals(buildingManager.needsServiceLevel(15), 3);
         try {
-            buildingManager.serviceLevelNeed(-1);
+            buildingManager.needsServiceLevel(-1);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
@@ -107,14 +107,16 @@ public class BuildingManagerTest {
     }
 
     @Test public void testGastroLevelNeed() throws Exception {
-        assertEquals(buildingManager.gastroLevelNeed(8), 1);
-        assertEquals(buildingManager.gastroLevelNeed(2), 0);
-        assertEquals(buildingManager.gastroLevelNeed(15), 2);
+        assertEquals(buildingManager.needGastroLevel(8), 1);
+        assertEquals(buildingManager.needGastroLevel(2), 0);
+        assertEquals(buildingManager.needGastroLevel(15), 2);
         try {
-            buildingManager.gastroLevelNeed(-123);
+            buildingManager.needGastroLevel(-123);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
     }
+
+
 }
