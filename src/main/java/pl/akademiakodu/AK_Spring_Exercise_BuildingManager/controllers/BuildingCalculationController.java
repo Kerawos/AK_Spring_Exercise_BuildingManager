@@ -21,8 +21,8 @@ public class BuildingCalculationController {
 
     @PostMapping("/build") public String buildingPost(@ModelAttribute("userInput") UserInput userInput, Model model){
         Building potentialBuilding = new Building();
-        potentialBuilding = buildingManager.totalCostCalculator(userInput.getWidth(), userInput.getLength(),
-                userInput.getFloors(), userInput.getUndergroundFloors());
+//        potentialBuilding = buildingManager.totalCostCalculator(userInput.getWidth(), userInput.getLength(),
+//                userInput.getFloors(), userInput.getUndergroundFloors());
         return "build";
     }
 
