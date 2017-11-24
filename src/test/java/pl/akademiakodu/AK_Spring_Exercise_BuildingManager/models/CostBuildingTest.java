@@ -4,6 +4,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.*;
 
 public class CostBuildingTest {
@@ -19,9 +21,9 @@ public class CostBuildingTest {
     }
 
     @Test public void testCostFoundation() throws Exception {
-        assertEquals(costBuilding.calcCostOfFoundation(3500, 8), 810854);
-        assertEquals(costBuilding.calcCostOfFoundation(2400, 12), 4315554);
-        assertEquals(costBuilding.calcCostOfFoundation(400, 5), 33262);
+        assertEquals(costBuilding.calcCostOfFoundation(3500, 8), 722369);
+        assertEquals(costBuilding.calcCostOfFoundation(2400, 12), 1027134);
+        assertEquals(costBuilding.calcCostOfFoundation(400, 5), 47775);
         try{
             costBuilding.calcCostOfFoundation(0, 12);
             fail("exc not catch");
@@ -146,29 +148,60 @@ public class CostBuildingTest {
         assertEquals(costBuilding.calcCostMaterialAreaWalls(70,20,0), 9360);
     }
 
-    @Test public void testCostUndergroundLevel() throws Exception {
-        assertEquals(costBuilding.calcCostUndergroundLevel(50, 70,2), 518736);
-        assertEquals(costBuilding.calcCostUndergroundLevel(40, 20,5), 1176991);
-        assertEquals(costBuilding.calcCostUndergroundLevel(65, 95, 12), 2147483647);
+    @Test public void testTotalCostUndergroundLevel() throws Exception {
+        assertEquals(costBuilding.calcTotalCostUndergroundLevel(50, 70,2), 833583);
+        assertEquals(costBuilding.calcTotalCostUndergroundLevel(40, 20,5), 7076245);
+        assertEquals(costBuilding.calcTotalCostUndergroundLevel(65, 95, 12), 2147483647);
         try{
-            costBuilding.calcCostUndergroundLevel(20,20,-4);
+            costBuilding.calcTotalCostUndergroundLevel(20,20,-4);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
         try{
-            costBuilding.calcCostUndergroundLevel(20,-20,4);
+            costBuilding.calcTotalCostUndergroundLevel(20,-20,4);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
         try{
-            costBuilding.calcCostUndergroundLevel(-20,20,4);
+            costBuilding.calcTotalCostUndergroundLevel(-20,20,4);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
-        assertEquals(costBuilding.calcCostUndergroundLevel(12, 10,0), 0);
+        assertEquals(costBuilding.calcTotalCostUndergroundLevel(12, 10,0), 0);
+    }
+
+    @Test public void testTotalCostOfBuilding() throws Exception {
+        assertEquals(costBuilding.calcTotalCostOfBuilding(50, 70,8, 2), new BigInteger("13395430"));
+        assertEquals(costBuilding.calcTotalCostOfBuilding(40, 20,5, 1), new BigInteger("2483957"));
+        assertEquals(costBuilding.calcTotalCostOfBuilding(65, 95, 25, 4), new BigInteger("2192560703"));
+        try{
+            costBuilding.calcTotalCostOfBuilding(20,20,4, -2);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcTotalCostOfBuilding(20,20,-4, 2);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcTotalCostOfBuilding(20,-20,4, 2);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcTotalCostOfBuilding(-20,20,4, 2);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        assertEquals(costBuilding.calcTotalCostOfBuilding(12, 10,1,0), new BigInteger("294208"));
     }
 
 
