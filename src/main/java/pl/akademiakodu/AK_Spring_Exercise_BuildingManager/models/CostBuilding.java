@@ -9,7 +9,7 @@ public class CostBuilding {
     private int costMaterialWallPerMeter = 52;
     private int costInstallationPerAreaMeter = 19;
     private int costElectronicsPerAreaMeter = 13;
-    private double costFoundationPerFloor = 1.2;
+    private double costFoundationPerFloor = 1.05;
     private int costGroundPerMeter = 1500;
     private int costLicenceBuilding = 35000;
     private int costEnvironmentPerLevel = 2400;
@@ -31,24 +31,24 @@ public class CostBuilding {
     }
 
     public int calcCostOfFoundation(int areaLevel, int floors){
-        if (floors<0 || areaLevel<0){
+        if (floors<0 || areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         if (floors==0){
             return areaLevel * getCostMaterialFloorPerAreaMeter();
         }
-        double potentialCost = 0;
+        double potentialCost = areaLevel * getCostMaterialFloorPerAreaMeter();
         double fouCos = getCostFoundationPerFloor();
         for (int i = 1; i <= floors; i++) {
-            potentialCost+=fouCos;
-            fouCos*=fouCos;
+            potentialCost*=fouCos;
+            fouCos*=getCostFoundationPerFloor();
         }
         return (int)potentialCost;
 
     }
 
     public int calcBuildingArea(int areaLevel){
-        if (areaLevel<0){
+        if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return (int)(areaLevel * getAreaMinimumIndicator());
