@@ -5,10 +5,10 @@ public class CostExploration {
     private double taxPerMeterArea = 0.5;
     private int chargesMonthlyPerToilet = 240;
     private double chargesMonthlyPerAreaMeter = 0.6;
-    private int chargesMonthlyMediaPerAreaMeter = 1;
-    private int chargesMonthlyPowerConsumptionPerWorker = 12;
+    private double chargesMonthlyMediaPerAreaMeter = 2.2;
+    private int chargesMonthlyPowerConsumptionPerWorker = 83;
     private double chargesMonthlyPowerConsumptionPerMeterArea = 0.2;
-    private int chargesMonthlyGastroPerWorker = -20;
+    private int chargesMonthlyGastroPerWorker = -65;
 
     public int calcTotalChargesMonthly(int totalToilets, int totalBuildingArea, int totalWorkers){
         int totalChargesMonthly = 0;
@@ -47,7 +47,7 @@ public class CostExploration {
         if (totalBuildingArea<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
-        return totalBuildingArea * getChargesMonthlyMediaPerAreaMeter();
+        return (int)(totalBuildingArea * getChargesMonthlyMediaPerAreaMeter());
     }
 
     public int calcChargesMonthlyPowerConsumptionPerWorker(int totalWorkers){
@@ -80,7 +80,7 @@ public class CostExploration {
         return chargesMonthlyPerAreaMeter;
     }
 
-    public int getChargesMonthlyMediaPerAreaMeter() {
+    public double getChargesMonthlyMediaPerAreaMeter() {
         return chargesMonthlyMediaPerAreaMeter;
     }
 
