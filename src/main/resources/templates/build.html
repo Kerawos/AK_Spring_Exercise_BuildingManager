@@ -5,7 +5,56 @@
     <title>Build</title>
 </head>
 <body bgcolor="#99CC66">
-
+    <!--<img src="img/RentSimulatorNav.png" style="max-width: 100%";>-->
+    <hr>
+    <font face="Open Sans" size="5" color="#4D4D4D">
+        <center>
+            <form method="post" th:action="@{/build}" th:object="${userInput}">
+                <input type="text" th:field="*{width}"> <-enter potential width of your building
+                <input type="text" th:field="*{length}"> <-enter potential length of your building
+                <input type="text" th:field="*{floor}">
+                <input type="text" th:field="*{undergroundFloor}">
+                <input type="submit" value="Generate-Potential-Building" size="5" style="width: 50%; height: 30px; background-color: cornflowerblue">
+            </form>
+            <p th:if="${info}!=null" th:text="${info}"></p><br>
+            <p th:if="${width}!=null" th:text="${width}"></p><br>
+            <p th:if="${length}!=null" th:text="${length}"></p><br>
+            <p th:if="${floors}!=null" th:text="${floors}"></p><br>
+            <p th:if="${undergroundFloors}!=null" th:text="${undergroundFloors}"></p><br>
+            <p th:if="${totalBuildingArea}!=null" th:text="${totalBuildingArea}"></p><br>
+            <p th:if="${officeLevel}!=null" th:text="${officeLevel}"></p><br>
+            <p th:if="${parkingLevel}!=null" th:text="${parkingLevel}"></p><br>
+            <p th:if="${serviceLevel}!=null" th:text="${serviceLevel}"></p><br>
+            <p th:if="${gastroLevel}!=null" th:text="${gastroLevel}"></p><br>
+            <p th:if="${elevator}!=null" th:text="${elevator}"></p><br>
+            <p th:if="${rooms}!=null" th:text="${rooms}"></p><br>
+            <p th:if="${straits}!=null" th:text="${straits}"></p><br>
+            <p th:if="${toilets}!=null" th:text="${toilets}"></p><br>
+            <p th:if="${potentialWorkers}!=null" th:text="${potentialWorkers}"></p><br>
+            <p th:if="${potentialBuildingCost}!=null" th:text="${potentialBuildingCost}"></p><br>
+            <p th:if="${potentialMonthlyCharges}!=null" th:text="${potentialMonthlyCharges}"></p><br>
+        </center>
+        <hr>
+        <i>
+            <p>Result Should be:</p> <br>
+            <p>Entered width = 50</p> <br>
+            <p>Entered length = 70</p> <br>
+            <p>Entered floors = 15</p> <br>
+            <p>Entered undergroundFloors = 2</p> <br>
+            <p>Expected total BuildingArea = 5250</p> <br>
+            <p>Expected office levels = 8</p> <br>
+            <p>Expected parking levels = 2</p> <br>
+            <p>Expected service levels = 3</p> <br>
+            <p>Expected gastro levels = 2</p> <br>
+            <p>Expected elevators = 7</p> <br>
+            <p>Expected rooms = 488</p> <br>
+            <p>Expected straits = 5</p> <br>
+            <p>Expected toilets = 15</p> <br>
+            <p>Expected potential Workers = 52500</p> <br>
+            <p>Expected potential Building total Cost = $20'222'462</p> <br>
+            <p>Expected potential Monthly total Charges = $235'590</p> <br>
+        </i>
+    </font>
 
 
 

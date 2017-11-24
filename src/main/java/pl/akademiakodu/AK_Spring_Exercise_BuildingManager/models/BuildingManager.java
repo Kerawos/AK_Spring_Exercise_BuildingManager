@@ -12,9 +12,9 @@ public class BuildingManager {
     private double elevatorNeedPerArea10 = 0.02;
     private double straitsNeedPerArea50 = 0.07;
     private double emptyAreaNeedPerArea = 0.25;
-    private double toiletNeedPerRoom = 0.05;
+    private double toiletNeedPerRoom = 0.3;
     private int workerAreaNeed = 4;
-    private int parkingNeedPerOfficeLevel = 3;
+    private int parkingNeedPerOfficeLevel = 6;
     private int servicesNeedPerOfficeLevel = 5;
     private int gastroNeedPerLevel = 7;
 
@@ -81,10 +81,16 @@ public class BuildingManager {
     }
 
     public int needsToilets(int rooms){
+        if (rooms<1){
+            throw new IllegalArgumentException("Arguments have to be greater than 0!");
+        }
         return (int)(rooms * getToiletNeedPerRoom());
     }
 
     public int potentialWorkers(int rooms){
+        if (rooms<1){
+            throw new IllegalArgumentException("Arguments have to be greater than 0!");
+        }
         return rooms * getWorkerAreaNeed();
     }
 
@@ -120,8 +126,8 @@ public class BuildingManager {
             potentialToiletsInBuilding++;
             potentialRoomsInBuilding = roomCalculator(calculateLevelArea(width, length), building.getElevator(), potentialToiletsInBuilding, building.getStraits());
         }while (levelArea - potentialRoomsInBuilding < getToiletsSpace() && needsToilets(potentialRoomsInBuilding)==potentialToiletsInBuilding);
-        building.setToilets(potentialToiletsInBuilding);
-        building.setRooms(potentialRoomsInBuilding);
+        building.setToilets(potentialToiletsInBuilding * building.getOfficeLevel() + building.getServiceLevel() + (building.getGastroLevel()*2));
+        building.setRooms(potentialRoomsInBuilding * building.getOfficeLevel());
         building.setPotentialWorkers(potentialWorkers(building.getRooms()));
         building.setPotentialBuildingCost(new CostBuilding().calcTotalCostOfBuilding(width, length, floors, undergroundFloors));
         building.setPotentialMonthlyCharges(new CostExploration().calcTotalChargesMonthly(building.getToilets(), building.getElevator(), building.getTotalBuildingArea(), building.getPotentialWorkers()));

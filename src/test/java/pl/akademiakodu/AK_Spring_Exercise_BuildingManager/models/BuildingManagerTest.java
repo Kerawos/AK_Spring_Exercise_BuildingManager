@@ -4,6 +4,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.*;
 
 public class BuildingManagerTest {
@@ -18,6 +20,15 @@ public class BuildingManagerTest {
     @AfterClass
     public static void stop() throws Exception {
         buildingManager = null;
+    }
+
+    @Test
+    public void testTotalBuildingCostCalculator() throws Exception {
+        Building expectedBuilding = new Building(50, 70, 15, 2, 52500,
+                8,2,3,2,7,488, 5,15,1952,
+                new BigInteger("20222462"), 235590);
+        assertEquals(expectedBuilding.toString(),
+                buildingManager.totalCostCalculator(50,70,15,2).toString());
     }
 
     @Test public void testElevatorNeed() throws Exception {
@@ -62,6 +73,32 @@ public class BuildingManagerTest {
         }
     }
 
+    @Test public void testToiletNeed() throws Exception {
+        assertEquals(buildingManager.needsToilets(61), 18);
+        assertEquals(buildingManager.needsToilets(220), 66);
+        assertEquals(buildingManager.needsToilets(4), 1);
+        assertEquals(buildingManager.needsToilets(13), 3);
+        try {
+            buildingManager.needsToilets(0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+    }
+
+    @Test public void testPotentialWorker() throws Exception {
+        assertEquals(buildingManager.potentialWorkers(61), 244);
+        assertEquals(buildingManager.potentialWorkers(220), 880);
+        assertEquals(buildingManager.potentialWorkers(4), 16);
+        assertEquals(buildingManager.potentialWorkers(13), 52);
+        try {
+            buildingManager.potentialWorkers(0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+    }
+
     @Test
     public void testRoomCalculator() throws Exception {
         assertEquals(buildingManager.roomCalculator(3500, 6, 2, 2), 62);
@@ -83,9 +120,9 @@ public class BuildingManagerTest {
     }
 
     @Test public void testParkingLevelNeed() throws Exception {
-        assertEquals(buildingManager.needsParkingLevel(8), 2);
+        assertEquals(buildingManager.needsParkingLevel(8), 1);
         assertEquals(buildingManager.needsParkingLevel(2), 0);
-        assertEquals(buildingManager.needsParkingLevel(15), 5);
+        assertEquals(buildingManager.needsParkingLevel(15), 2);
         try {
             buildingManager.needsParkingLevel(-4);
             fail("exc not catch");
@@ -117,6 +154,5 @@ public class BuildingManagerTest {
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
     }
-
 
 }

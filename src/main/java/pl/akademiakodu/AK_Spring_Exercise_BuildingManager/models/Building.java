@@ -27,7 +27,9 @@ public class Building {
     public Building() {
     }
 
-    public Building(int width, int length, int floors, int undergroundFloors, int totalBuildingArea, int officeLevel, int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int rooms, int straits, int toilets, int potentialWorkers, BigInteger potentialBuildingCost, int potentialMonthlyCharges) {
+    public Building(int width, int length, int floors, int undergroundFloors, int totalBuildingArea, int officeLevel,
+                    int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int rooms, int straits,
+                    int toilets, int potentialWorkers, BigInteger potentialBuildingCost, int potentialMonthlyCharges) {
         this.width = width;
         this.length = length;
         this.floors = floors;
@@ -172,5 +174,27 @@ public class Building {
 
     public void setPotentialMonthlyCharges(int potentialMonthlyCharges) {
         this.potentialMonthlyCharges = potentialMonthlyCharges;
+    }
+
+    @Override
+    public String toString() {
+        return "Building{" +
+                "width=" + width +
+                ", length=" + length +
+                ", floors=" + floors +
+                ", undergroundFloors=" + undergroundFloors +
+                ", totalBuildingArea=" + totalBuildingArea +
+                ", officeLevel=" + officeLevel +
+                ", parkingLevel=" + parkingLevel +
+                ", serviceLevel=" + serviceLevel +
+                ", gastroLevel=" + gastroLevel +
+                ", elevator=" + elevator +
+                ", rooms=" + rooms +
+                ", straits=" + straits +
+                ", toilets=" + toilets +
+                ", potentialWorkers=" + potentialWorkers +
+                ", potentialBuildingCost=" + potentialBuildingCost +
+                ", potentialMonthlyCharges=" + potentialMonthlyCharges +
+                '}';
     }
 }
