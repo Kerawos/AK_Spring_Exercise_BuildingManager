@@ -90,14 +90,14 @@ public class CostBuilding {
     }
 
     public int calcCostMaterialFloor(int areaLevel){
-        if (areaLevel<0){
+        if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return areaLevel * getCostMaterialFloorPerAreaMeter();
     }
 
     public int calcCostMaterialAreaWalls(int width, int length, int floors){
-        if (width<0 || length<0 || floors<0){
+        if (width<1 || length<1 || floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         if (floors==0){

@@ -109,6 +109,43 @@ public class CostBuildingTest {
         }
     }
 
+    @Test public void testCostMaterialFloor() throws Exception {
+        assertEquals(costBuilding.calcCostMaterialFloor(3500), 140000);
+        assertEquals(costBuilding.calcCostMaterialFloor(225), 9000);
+        assertEquals(costBuilding.calcCostMaterialFloor(2400), 96000);
+        try{
+            costBuilding.calcCostMaterialFloor(0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+    }
+
+    @Test public void testCostMaterialAreaWalls() throws Exception {
+        assertEquals(costBuilding.calcCostMaterialAreaWalls(70, 50, 8), 99840);
+        assertEquals(costBuilding.calcCostMaterialAreaWalls(12,12, 3), 7488);
+        assertEquals(costBuilding.calcCostMaterialAreaWalls(50,40,12), 112320);
+        try{
+            costBuilding.calcCostMaterialAreaWalls(80, 0,8);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostMaterialAreaWalls(0, 40,3);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostMaterialAreaWalls(80, -5,0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        assertEquals(costBuilding.calcCostMaterialAreaWalls(70,20,0), 9360);
+    }
+
 
 
 
