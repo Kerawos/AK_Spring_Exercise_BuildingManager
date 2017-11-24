@@ -47,4 +47,37 @@ public class CostBuildingTest {
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
     }
+
+    @Test public void testGroundCost() throws Exception {
+        assertEquals(costBuilding.calcCostOfGround(4200), 6300000);
+        assertEquals(costBuilding.calcCostOfGround(504), 756000);
+        assertEquals(costBuilding.calcCostOfGround(1600), 2400000);
+        assertEquals(costBuilding.calcCostOfGround(225), 337500);
+        try{
+            costBuilding.calcCostOfGround(0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+    }
+
+    @Test public void testCostOfEnvironment() throws Exception {
+        assertEquals(costBuilding.calcCostOfEnvironmentLevel(8), 19200);
+        assertEquals(costBuilding.calcCostOfEnvironmentLevel(25), 60000);
+        assertEquals(costBuilding.calcCostOfEnvironmentLevel(0), 0);
+        try{
+            costBuilding.calcCostOfEnvironmentLevel(-5);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+    }
+
+    
+
+
+
+
+
+
 }

@@ -55,6 +55,9 @@ public class CostBuilding {
     }
 
     public int calcCostOfGround(int buildingArea){
+        if (buildingArea<1){
+            throw new IllegalArgumentException("Arguments have to be greater than 0!");
+        }
         return buildingArea * getCostGroundPerMeter();
     }
 
