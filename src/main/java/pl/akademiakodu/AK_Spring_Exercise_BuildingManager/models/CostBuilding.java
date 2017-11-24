@@ -8,7 +8,7 @@ public class CostBuilding {
     private int costMaterialRoofPerAreaMeter = 90;
     private int costMaterialWallPerMeter = 52;
     private int costInstallationPerAreaMeter = 19;
-    private int costElectronicsPerAreaMeter = 13;
+    private int costElectronicsPerAreaMeter = 130;
     private double costFoundationPerFloor = 1.05;
     private int costGroundPerMeter = 1500;
     private int costLicenceBuilding = 35000;
@@ -23,7 +23,7 @@ public class CostBuilding {
         totalCost += calcCostOfRoof(areaLevel);
         totalCost += calcCostOfFoundation(areaLevel, floors);
         totalCost += calcCostOfElectronic(areaLevel);
-        totalCost += calcCostOfInstalation(areaLevel);
+        totalCost += calcCostOfInstallation(areaLevel);
         totalCost += calcCostMaterialFloor(areaLevel);
         totalCost += calcCostMaterialAreaWalls(width, length, floors);
         totalCost += calcCostUndergroundLevel(undergroundFloors);
@@ -69,21 +69,21 @@ public class CostBuilding {
     }
 
     public int calcCostOfRoof(int areaLevel){
-        if (areaLevel<0){
+        if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return areaLevel * getCostMaterialRoofPerAreaMeter();
     }
 
     public int calcCostOfElectronic(int areaLevel){
-        if (areaLevel<0){
+        if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return areaLevel * getCostElectronicsPerAreaMeter();
     }
 
-    public int calcCostOfInstalation(int areaLevel){
-        if (areaLevel<0){
+    public int calcCostOfInstallation(int areaLevel){
+        if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return areaLevel * getCostInstallationPerAreaMeter();
