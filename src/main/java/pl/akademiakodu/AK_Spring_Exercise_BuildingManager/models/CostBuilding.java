@@ -151,7 +151,7 @@ public class CostBuilding {
         if (undergroundFloors<0 || areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
-        if (!checkArea(areaLevel)){
+        if (!checkArea(areaLevel) || !checkUndergroundFloors(undergroundFloors)){
             throw new IllegalArgumentException("Arguments over limits!");
         }
         if (undergroundFloors==0){

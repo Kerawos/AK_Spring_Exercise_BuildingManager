@@ -48,6 +48,12 @@ public class CostBuildingTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
+        try{
+            costBuilding.calcBuildingArea(950000);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
     }
 
     @Test public void testGroundCost() throws Exception {
@@ -73,6 +79,12 @@ public class CostBuildingTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
+        try{
+            costBuilding.calcCostOfEnvironmentLevel(950000);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
     }
 
     @Test public void testCostOfRoof() throws Exception {
@@ -84,6 +96,12 @@ public class CostBuildingTest {
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostOfRoof(950000);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
         }
     }
 
@@ -97,6 +115,12 @@ public class CostBuildingTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
+        try{
+            costBuilding.calcCostOfElectronic(950000);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
     }
 
     @Test public void testCostOfInstallation() throws Exception {
@@ -109,6 +133,12 @@ public class CostBuildingTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
+        try{
+            costBuilding.calcCostOfInstallation(950000);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
     }
 
     @Test public void testCostMaterialFloor() throws Exception {
@@ -120,6 +150,12 @@ public class CostBuildingTest {
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostMaterialFloor(950000);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
         }
     }
 
@@ -144,6 +180,18 @@ public class CostBuildingTest {
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try{
+            costBuilding.calcCostMaterialAreaWalls(8000, 500,0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
+        try{
+            costBuilding.calcCostMaterialAreaWalls(80, 50,80);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
         }
         assertEquals(costBuilding.calcCostMaterialAreaWalls(70,20,0), 9360);
     }
@@ -170,13 +218,25 @@ public class CostBuildingTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
+        try{
+            costBuilding.calcTotalCostUndergroundLevel(8000, 5000,8);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
+        try{
+            costBuilding.calcTotalCostUndergroundLevel(8, 5,24);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
         assertEquals(costBuilding.calcTotalCostUndergroundLevel(12, 10,0), 0);
     }
 
     @Test public void testTotalCostOfBuilding() throws Exception {
-        assertEquals(costBuilding.calcTotalCostOfBuilding(50, 70,8, 2), new BigInteger("13395430"));
-        assertEquals(costBuilding.calcTotalCostOfBuilding(40, 20,5, 1), new BigInteger("2483957"));
-        assertEquals(costBuilding.calcTotalCostOfBuilding(65, 95, 25, 4), new BigInteger("2192560703"));
+        assertEquals(costBuilding.calcTotalCostOfBuilding(50, 70,8, 2), new BigInteger("13621792"));
+        assertEquals(costBuilding.calcTotalCostOfBuilding(40, 20,5, 1), new BigInteger("2537211"));
+        assertEquals(costBuilding.calcTotalCostOfBuilding(65, 95, 21, 4), new BigInteger("62827662"));
         try{
             costBuilding.calcTotalCostOfBuilding(20,20,4, -2);
             fail("exc not catch");
@@ -201,7 +261,31 @@ public class CostBuildingTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
-        assertEquals(costBuilding.calcTotalCostOfBuilding(12, 10,1,0), new BigInteger("294208"));
+        try{
+            costBuilding.calcTotalCostOfBuilding(200,200,24, 5);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
+        try{
+            costBuilding.calcTotalCostOfBuilding(20,20,78, 2);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
+        try{
+            costBuilding.calcTotalCostOfBuilding(20,20,1, 25);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
+        try{
+            costBuilding.calcTotalCostOfBuilding(2000,200,4, 2);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments over limits!");
+        }
+        assertEquals(costBuilding.calcTotalCostOfBuilding(12, 10,1,0), new BigInteger("296080"));
     }
 
 
