@@ -199,7 +199,7 @@ public class CostBuildingTest {
     @Test public void testTotalCostUndergroundLevel() throws Exception {
         assertEquals(costBuilding.calcTotalCostUndergroundLevel(50, 70,2), 833583);
         assertEquals(costBuilding.calcTotalCostUndergroundLevel(40, 20,5), 7076245);
-        assertEquals(costBuilding.calcTotalCostUndergroundLevel(65, 95, 12), 2147483647);
+        assertEquals(costBuilding.calcTotalCostUndergroundLevel(65, 95, 7), 1270286647);
         try{
             costBuilding.calcTotalCostUndergroundLevel(20,20,-4);
             fail("exc not catch");

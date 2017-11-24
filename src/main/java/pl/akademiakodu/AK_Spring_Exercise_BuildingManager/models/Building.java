@@ -1,5 +1,7 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
 
+import java.math.BigInteger;
+
 public class Building {
 
     private int width;
@@ -19,13 +21,13 @@ public class Building {
     private int toilets;
 
     private int potentialWorkers;
-    private int potentialBuildingCost;
+    private BigInteger potentialBuildingCost;
     private int potentialMonthlyCharges;
 
     public Building() {
     }
 
-    public Building(int width, int length, int floors, int undergroundFloors, int totalBuildingArea, int officeLevel, int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int rooms, int straits, int toilets, int potentialWorkers, int potentialBuildingCost, int potentialMonthlyCharges) {
+    public Building(int width, int length, int floors, int undergroundFloors, int totalBuildingArea, int officeLevel, int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int rooms, int straits, int toilets, int potentialWorkers, BigInteger potentialBuildingCost, int potentialMonthlyCharges) {
         this.width = width;
         this.length = length;
         this.floors = floors;
@@ -156,11 +158,11 @@ public class Building {
         this.potentialWorkers = potentialWorkers;
     }
 
-    public int getPotentialBuildingCost() {
+    public BigInteger getPotentialBuildingCost() {
         return potentialBuildingCost;
     }
 
-    public void setPotentialBuildingCost(int potentialBuildingCost) {
+    public void setPotentialBuildingCost(BigInteger potentialBuildingCost) {
         this.potentialBuildingCost = potentialBuildingCost;
     }
 

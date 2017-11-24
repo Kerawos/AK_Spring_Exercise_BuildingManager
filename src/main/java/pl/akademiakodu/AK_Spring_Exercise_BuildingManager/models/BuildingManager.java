@@ -123,8 +123,9 @@ public class BuildingManager {
         building.setToilets(potentialToiletsInBuilding);
         building.setRooms(potentialRoomsInBuilding);
         building.setPotentialWorkers(potentialWorkers(building.getRooms()));
-
-        return null;
+        building.setPotentialBuildingCost(new CostBuilding().calcTotalCostOfBuilding(width, length, floors, undergroundFloors));
+        building.setPotentialMonthlyCharges(new CostExploration().calcTotalChargesMonthly(building.getToilets(), building.getElevator(), building.getTotalBuildingArea(), building.getPotentialWorkers()));
+        return building;
     }
 
     public int totalFlors(int floors, int undergroundFloors){

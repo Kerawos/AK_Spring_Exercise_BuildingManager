@@ -4,16 +4,18 @@ public class CostExploration {
 
     private double taxPerMeterArea = 0.5;
     private int chargesMonthlyPerToilet = 240;
+    private int chargesMonthlyPerElevator = 1872;
     private double chargesMonthlyPerAreaMeter = 0.6;
     private double chargesMonthlyMediaPerAreaMeter = 2.2;
     private int chargesMonthlyPowerConsumptionPerWorker = 83;
     private double chargesMonthlyPowerConsumptionPerMeterArea = 0.2;
     private int chargesMonthlyGastroPerWorker = -65;
 
-    public int calcTotalChargesMonthly(int totalToilets, int totalBuildingArea, int totalWorkers){
+    public int calcTotalChargesMonthly(int totalToilets, int totalElevators, int totalBuildingArea, int totalWorkers){
         int totalChargesMonthly = 0;
         totalChargesMonthly+=calcTaxPerMeterArea(totalBuildingArea);
         totalChargesMonthly+=calcChargesMonthlyPerToilet(totalToilets);
+        totalChargesMonthly+=calcChargesMonthlyPerElevator(totalElevators);
         totalChargesMonthly+=calcChargesMonthlyPerAreaMeter(totalBuildingArea);
         totalChargesMonthly+=calcChargesMonthlyMedia(totalBuildingArea);
         totalChargesMonthly+=calcChargesMonthlyPowerConsumptionPerWorker(totalWorkers);
@@ -34,6 +36,13 @@ public class CostExploration {
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
         return toilets * getChargesMonthlyPerToilet();
+    }
+
+    public int calcChargesMonthlyPerElevator(int elevators){
+        if (elevators<0){
+            throw new IllegalArgumentException("Arguments have to be greater than 0!");
+        }
+        return elevators==0 ? 0 : elevators * getChargesMonthlyPerElevator();
     }
 
     public int calcChargesMonthlyPerAreaMeter(int totalBuildingArea){
@@ -74,6 +83,10 @@ public class CostExploration {
     //Getters
     public int getChargesMonthlyPerToilet() {
         return chargesMonthlyPerToilet;
+    }
+
+    public int getChargesMonthlyPerElevator() {
+        return chargesMonthlyPerElevator;
     }
 
     public double getChargesMonthlyPerAreaMeter() {

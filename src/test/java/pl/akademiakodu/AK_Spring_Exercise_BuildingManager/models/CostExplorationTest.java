@@ -30,12 +30,26 @@ public class CostExplorationTest {
         }
     }
 
+
+
     @Test public void testChargesMonthlyPerToilet() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyPerToilet(48), 11520);
         assertEquals(costExploration.calcChargesMonthlyPerToilet(21), 5040);
         assertEquals(costExploration.calcChargesMonthlyPerToilet(3), 720);
         try {
             costExploration.calcChargesMonthlyPerToilet(0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+    }
+
+    @Test public void testChargesMonthlyPerElevator() throws Exception {
+        assertEquals(costExploration.calcChargesMonthlyPerElevator(6), 11232);
+        assertEquals(costExploration.calcChargesMonthlyPerElevator(24), 44928);
+        assertEquals(costExploration.calcChargesMonthlyPerElevator(0), 0);
+        try {
+            costExploration.calcChargesMonthlyPerElevator(-7);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
@@ -103,23 +117,29 @@ public class CostExplorationTest {
     }
 
     @Test public void testTotalChargesMonthly() throws Exception {
-        assertEquals(costExploration.calcTotalChargesMonthly(42,28000, 300), 113480);
-        assertEquals(costExploration.calcTotalChargesMonthly(16, 9750, 69), 39207);
-        assertEquals(costExploration.calcTotalChargesMonthly(1, 120,8), 804);
+        assertEquals(costExploration.calcTotalChargesMonthly(42, 6,28000, 300), 124712);
+        assertEquals(costExploration.calcTotalChargesMonthly(16, 3, 9750, 69), 44823);
+        assertEquals(costExploration.calcTotalChargesMonthly(1, 0, 120,8), 804);
         try {
-            costExploration.calcTotalChargesMonthly(0, 28000, 3000);
+            costExploration.calcTotalChargesMonthly(0, 6,28000, 3000);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
         try {
-            costExploration.calcTotalChargesMonthly(42, 0, 3000);
+            costExploration.calcTotalChargesMonthly(42, 6, 0, 3000);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
         try {
-            costExploration.calcTotalChargesMonthly(42, 28000, 0);
+            costExploration.calcTotalChargesMonthly(42, 6, 28000, 0);
+            fail("exc not catch");
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
+        }
+        try {
+            costExploration.calcTotalChargesMonthly(42, -6, 28000, 850);
             fail("exc not catch");
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
