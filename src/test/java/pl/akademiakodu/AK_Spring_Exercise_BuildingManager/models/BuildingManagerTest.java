@@ -59,6 +59,8 @@ public class BuildingManagerTest {
         assertEquals(buildingManager.needsStraits(1200, 5), 1);
         assertEquals(buildingManager.needsStraits(4500, 33), 6);
         assertEquals(buildingManager.needsStraits(880, 0), 0);
+        assertEquals(buildingManager.needsStraits(200, 3), 1);
+        assertEquals(buildingManager.needsStraits(10, 1), 1);
         try {
             buildingManager.needsStraits(345,-1);
             fail("exc not catch");

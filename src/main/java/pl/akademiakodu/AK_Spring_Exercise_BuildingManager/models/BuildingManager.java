@@ -55,7 +55,8 @@ public class BuildingManager {
         if (levelArea<1 || floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
         }
-        return (int)(((double)levelArea/50) * getStraitsNeedPerArea50() + ((double)floors * getElevatorNeedPerLevel()));
+        int straits = (int)(((double)levelArea/50) * getStraitsNeedPerArea50() + ((double)floors * getElevatorNeedPerLevel()));
+        return straits > 0 ? straits : 1;
     }
 
     public int needsParkingLevel(int floors){

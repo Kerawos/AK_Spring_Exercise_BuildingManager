@@ -24,6 +24,7 @@ public class CostBuildingTest {
         assertEquals(costBuilding.calcCostOfFoundation(3500, 8), 722369);
         assertEquals(costBuilding.calcCostOfFoundation(2400, 12), 1027134);
         assertEquals(costBuilding.calcCostOfFoundation(400, 5), 47775);
+        assertEquals(costBuilding.calcCostOfFoundation(200, 3), 16588);
         try{
             costBuilding.calcCostOfFoundation(0, 12);
             fail("exc not catch");
