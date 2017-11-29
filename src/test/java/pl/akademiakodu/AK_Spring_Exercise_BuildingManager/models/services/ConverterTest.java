@@ -20,6 +20,10 @@ public class ConverterTest {
         converter = null;
     }
 
+    /**
+     * replace given string into integer
+     * @throws Exception in case of given invalid user input
+     */
     @Test public void testStringToInt() throws Exception {
         assertEquals(converter.stringIntoInteger("552"), 552);
         assertEquals(converter.stringIntoInteger("-3"), -3);
@@ -49,6 +53,10 @@ public class ConverterTest {
         }
     }
 
+    /**
+     * replace given string into big integer
+     * @throws Exception in case of given invalid user input
+     */
     @Test public void testStringToBigInt() throws Exception {
         assertEquals(converter.stringIntoBigInteger("522") , new BigInteger("522"));
         assertEquals(converter.stringIntoBigInteger("-569") , new BigInteger("-569"));

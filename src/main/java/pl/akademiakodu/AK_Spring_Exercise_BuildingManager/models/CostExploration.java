@@ -20,7 +20,6 @@ public class CostExploration {
     private int chargesMonthlyGastroPerWorker = -65;
 
     /**
-     *
      * @param totalToilets as a part of noticeable building cost
      * @param totalElevators as a part of noticeable building cost
      * @param totalBuildingArea one of most important exploration cost, key value
@@ -72,6 +71,7 @@ public class CostExploration {
         }
         return elevators==0 ? 0 : elevators * getChargesMonthlyPerElevator();
     }
+
     /**
      * @param totalBuildingArea given square meter space of the building
      * @return cost of potential using area

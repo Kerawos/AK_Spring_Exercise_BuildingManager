@@ -27,7 +27,6 @@ public class BuildingManager {
     private int servicesNeedPerOfficeLevel = 5;
     private int gastroNeedPerLevel = 7;
 
-
     /**
      * @param width given of building
      * @param length given of building

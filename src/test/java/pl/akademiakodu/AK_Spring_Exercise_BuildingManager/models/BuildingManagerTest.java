@@ -22,8 +22,11 @@ public class BuildingManagerTest {
         buildingManager = null;
     }
 
-    @Test
-    public void testTotalBuildingCostCalculator() throws Exception {
+    /**
+     * calculate total cost of building based on four key value given by user
+     * @throws Exception
+     */
+    @Test public void testTotalBuildingCostCalculator() throws Exception {
         Building expectedBuilding = new Building(50, 70, 15, 2, 52500,
                 8,2,3,2,7,488, 5,15,1952,
                 new BigInteger("20222462"), 235590);
@@ -31,6 +34,10 @@ public class BuildingManagerTest {
                 buildingManager.totalCostCalculator(50,70,15,2).toString());
     }
 
+    /**
+     * calculate elevator need in the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testElevatorNeed() throws Exception {
         assertEquals(buildingManager.needsElevator(3500, 8), 7);
         assertEquals(buildingManager.needsElevator(5200, 25), 10);
@@ -44,6 +51,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate total area of the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testAreaCalculator() throws Exception {
         assertEquals(buildingManager.calculateLevelArea(50,70), 3500);
         try {
@@ -54,6 +65,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate straits need in the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testStraitsNeed() throws Exception {
         assertEquals(buildingManager.needsStraits(3500, 8), 4);
         assertEquals(buildingManager.needsStraits(1200, 5), 1);
@@ -75,6 +90,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate toilets need in the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testToiletNeed() throws Exception {
         assertEquals(buildingManager.needsToilets(61), 18);
         assertEquals(buildingManager.needsToilets(220), 66);
@@ -88,6 +107,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate maximum capacity of worker in the building based on given law
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testPotentialWorker() throws Exception {
         assertEquals(buildingManager.potentialWorkers(61), 244);
         assertEquals(buildingManager.potentialWorkers(220), 880);
@@ -101,8 +124,11 @@ public class BuildingManagerTest {
         }
     }
 
-    @Test
-    public void testRoomCalculator() throws Exception {
+    /**
+     * calculate room capacity in the building
+     * @throws Exception in case of invalid user input
+     */
+    @Test public void testRoomCalculator() throws Exception {
         assertEquals(buildingManager.roomCalculator(3500, 6, 2, 2), 62);
         assertEquals(buildingManager.roomCalculator(2000, 8, 4, 4), 31);
         assertEquals(buildingManager.roomCalculator(240, 1, 1, 1), 3);
@@ -121,6 +147,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate parking need in the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testParkingLevelNeed() throws Exception {
         assertEquals(buildingManager.needsParkingLevel(8), 1);
         assertEquals(buildingManager.needsParkingLevel(2), 0);
@@ -133,6 +163,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate service level need in the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testServiceLevelNeed() throws Exception {
         assertEquals(buildingManager.needsServiceLevel(8), 1);
         assertEquals(buildingManager.needsServiceLevel(2), 0);
@@ -145,6 +179,10 @@ public class BuildingManagerTest {
         }
     }
 
+    /**
+     * calculate gastro level need in the building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testGastroLevelNeed() throws Exception {
         assertEquals(buildingManager.needGastroLevel(8), 1);
         assertEquals(buildingManager.needGastroLevel(2), 0);

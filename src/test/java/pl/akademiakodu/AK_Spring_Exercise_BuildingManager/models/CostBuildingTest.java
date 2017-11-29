@@ -20,6 +20,10 @@ public class CostBuildingTest {
         costBuilding = null;
     }
 
+    /**
+     * 
+     * @throws Exception
+     */
     @Test public void testCostFoundation() throws Exception {
         assertEquals(costBuilding.calcCostOfFoundation(3500, 8), 722369);
         assertEquals(costBuilding.calcCostOfFoundation(2400, 12), 1027134);
