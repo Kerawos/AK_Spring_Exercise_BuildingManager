@@ -86,9 +86,8 @@ public class CostBuilding {
     }
 
     /**
-     * 
-     * @param areaLevel
-     * @return
+     * @param areaLevel given area of building level
+     * @return minimum area for building
      */
     public int calcBuildingArea(int areaLevel){
         if (areaLevel<1){
@@ -100,6 +99,10 @@ public class CostBuilding {
         return (int)(areaLevel * getAreaMinimumIndicator());
     }
 
+    /**
+     * @param buildingArea given area of building level
+     * @return cost of minimum area needed to build building
+     */
     public int calcCostOfGround(int buildingArea){
         if (buildingArea<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -107,6 +110,10 @@ public class CostBuilding {
         return buildingArea * getCostGroundPerMeter();
     }
 
+    /**
+     * @param floors given total floors in the building
+     * @return cost of environment tax depend of given building levels
+     */
     public int calcCostOfEnvironmentLevel(int floors){
         if (floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -117,6 +124,10 @@ public class CostBuilding {
         return getCostEnvironmentPerLevel() * floors;
     }
 
+    /**
+     * @param areaLevel given one level area of building
+     * @return cost of last floor ceiling and roof
+     */
     public int calcCostOfRoof(int areaLevel){
         if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -127,6 +138,10 @@ public class CostBuilding {
         return areaLevel * getCostMaterialRoofPerAreaMeter();
     }
 
+    /**
+     * @param areaLevel given one level area of building
+     * @return potential cost of office average quality electronics
+     */
     public int calcCostOfElectronic(int areaLevel){
         if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -137,6 +152,10 @@ public class CostBuilding {
         return areaLevel * getCostElectronicsPerAreaMeter();
     }
 
+    /**
+     * @param areaLevel given one level area of building
+     * @return potential cost of cables, tubes, ventilation, sensors etc..
+     */
     public int calcCostOfInstallation(int areaLevel){
         if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -147,6 +166,10 @@ public class CostBuilding {
         return areaLevel * getCostInstallationPerAreaMeter();
     }
 
+    /**
+     * @param areaLevel given one level area of building
+     * @return cost of potential one floor level
+     */
     public int calcCostMaterialFloor(int areaLevel){
         if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -157,6 +180,12 @@ public class CostBuilding {
         return areaLevel * getCostMaterialFloorPerAreaMeter();
     }
 
+    /**
+     * @param width of building
+     * @param length of building
+     * @param floors of building
+     * @return cost of potential walls of one building level
+     */
     public int calcCostMaterialAreaWalls(int width, int length, int floors){
         if (width<1 || length<1 || floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -170,6 +199,13 @@ public class CostBuilding {
         return (((width*2) + (length*2)) * floors) * getCostMaterialWallPerMeter();
     }
 
+    /**
+     * underground levels are specified, cause of specific cost which raise fast per every deeper level.
+     * @param width of building
+     * @param length of building
+     * @param undergroundFloors of building
+     * @return scalable cost of potential undergorund building level
+     */
     public int calcTotalCostUndergroundLevel(int width, int length, int undergroundFloors){
         int areaLevel = width * length;
         if (undergroundFloors<0 || areaLevel<1){
@@ -190,19 +226,31 @@ public class CostBuilding {
         return (int)(potentialUndergroundCost * fouCos);
     }
 
+    /**
+     * @param areaLevel given one level area of building
+     * @return information if potential area of building fits building space established standards
+     */
     public boolean checkArea(int areaLevel){
         return areaLevel > getLimitOfArea() ? false : true;
     }
 
+    /**
+     * @param floor given building floors
+     * @return information if potential building height fits building established standards
+     */
     public boolean checkFloors(int floor){
         return floor > getLimitOfFloors() ? false : true;
     }
 
+    /**
+     * in some places investors cannot dig under specified level to protect nearby buildings and deposits of e.g: ore
+     * @param undergroundFloor given underground floors
+     * @return information if potential building underground levels fits building established standards
+     */
     public boolean checkUndergroundFloors(int undergroundFloor){
         return undergroundFloor > getLimitOfUndergroundFloors() ? false : true;
     }
-
-
+    
     /**
      * @getters variable holders
      */
