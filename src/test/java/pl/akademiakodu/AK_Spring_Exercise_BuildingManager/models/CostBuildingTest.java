@@ -21,8 +21,8 @@ public class CostBuildingTest {
     }
 
     /**
-     * 
-     * @throws Exception
+     * testing proper work of calculating foundation cost
+     * @throws Exception in case of invalid user input
      */
     @Test public void testCostFoundation() throws Exception {
         assertEquals(costBuilding.calcCostOfFoundation(3500, 8), 722369);
@@ -44,6 +44,10 @@ public class CostBuildingTest {
         assertEquals(costBuilding.calcCostOfFoundation(120, 0), 4800);
     }
 
+    /**
+     * testing proper work of calculating building level area
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testBuildingArea() throws Exception {
         assertEquals(costBuilding.calcBuildingArea(3500), 4200);
         assertEquals(costBuilding.calcBuildingArea(420), 504);
@@ -61,6 +65,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating ground cost
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testGroundCost() throws Exception {
         assertEquals(costBuilding.calcCostOfGround(4200), 6300000);
         assertEquals(costBuilding.calcCostOfGround(504), 756000);
@@ -74,6 +82,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating environmental cost
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testCostOfEnvironment() throws Exception {
         assertEquals(costBuilding.calcCostOfEnvironmentLevel(8), 19200);
         assertEquals(costBuilding.calcCostOfEnvironmentLevel(25), 60000);
@@ -92,6 +104,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating roof cost
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testCostOfRoof() throws Exception {
         assertEquals(costBuilding.calcCostOfRoof(3500), 315000);
         assertEquals(costBuilding.calcCostOfRoof(225), 20250);
@@ -110,6 +126,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating electronic cost
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testCostOfElectronic() throws Exception {
         assertEquals(costBuilding.calcCostOfElectronic(3500), 455000);
         assertEquals(costBuilding.calcCostOfElectronic(225), 29250);
@@ -128,6 +148,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating installation cost
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testCostOfInstallation() throws Exception {
         assertEquals(costBuilding.calcCostOfInstallation(3500), 66500);
         assertEquals(costBuilding.calcCostOfInstallation(225), 4275);
@@ -146,6 +170,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating material cost of one floor
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testCostMaterialFloor() throws Exception {
         assertEquals(costBuilding.calcCostMaterialFloor(3500), 140000);
         assertEquals(costBuilding.calcCostMaterialFloor(225), 9000);
@@ -164,6 +192,10 @@ public class CostBuildingTest {
         }
     }
 
+    /**
+     * testing proper work of calculating walls cost of one floor
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testCostMaterialAreaWalls() throws Exception {
         assertEquals(costBuilding.calcCostMaterialAreaWalls(70, 50, 8), 99840);
         assertEquals(costBuilding.calcCostMaterialAreaWalls(12,12, 3), 7488);
@@ -201,6 +233,10 @@ public class CostBuildingTest {
         assertEquals(costBuilding.calcCostMaterialAreaWalls(70,20,0), 9360);
     }
 
+    /**
+     * testing proper work of calculating scalable underground cost
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testTotalCostUndergroundLevel() throws Exception {
         assertEquals(costBuilding.calcTotalCostUndergroundLevel(50, 70,2), 833583);
         assertEquals(costBuilding.calcTotalCostUndergroundLevel(40, 20,5), 7076245);
@@ -238,6 +274,10 @@ public class CostBuildingTest {
         assertEquals(costBuilding.calcTotalCostUndergroundLevel(12, 10,0), 0);
     }
 
+    /**
+     * testing proper work of calculating total cost of building
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testTotalCostOfBuilding() throws Exception {
         assertEquals(costBuilding.calcTotalCostOfBuilding(50, 70,8, 2), new BigInteger("13621792"));
         assertEquals(costBuilding.calcTotalCostOfBuilding(40, 20,5, 1), new BigInteger("2537211"));
@@ -292,14 +332,4 @@ public class CostBuildingTest {
         }
         assertEquals(costBuilding.calcTotalCostOfBuilding(12, 10,1,0), new BigInteger("296080"));
     }
-
-
-
-
-
-
-
-
-
-
 }

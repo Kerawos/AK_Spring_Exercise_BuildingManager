@@ -18,6 +18,10 @@ public class CostExplorationTest {
         costExploration = null;
     }
 
+    /**
+     * testing proper work of calculating area tax
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testTaxPerMeterArea() throws Exception {
         assertEquals(costExploration.calcTaxPerMeterArea(28000), 14000);
         assertEquals(costExploration.calcTaxPerMeterArea(9520), 4760);
@@ -30,8 +34,10 @@ public class CostExplorationTest {
         }
     }
 
-
-
+    /**
+     * testing proper work of calculating toilets monthly charges
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyPerToilet() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyPerToilet(48), 11520);
         assertEquals(costExploration.calcChargesMonthlyPerToilet(21), 5040);
@@ -44,6 +50,10 @@ public class CostExplorationTest {
         }
     }
 
+    /**
+     * testing proper work of calculating elevators monthly charges
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyPerElevator() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyPerElevator(6), 11232);
         assertEquals(costExploration.calcChargesMonthlyPerElevator(24), 44928);
@@ -56,6 +66,10 @@ public class CostExplorationTest {
         }
     }
 
+    /**
+     * testing proper work of calculating level area monthly charges
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyPerAreaMeter() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyPerAreaMeter(28000), 16800);
         assertEquals(costExploration.calcChargesMonthlyPerAreaMeter(9520), 5712);
@@ -68,6 +82,10 @@ public class CostExplorationTest {
         }
     }
 
+    /**
+     * testing proper work of calculating media monthly charges
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyMedia() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyMedia(28000), 61600);
         assertEquals(costExploration.calcChargesMonthlyMedia(9520), 20944);
@@ -79,7 +97,10 @@ public class CostExplorationTest {
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
     }
-
+    /**
+     * testing proper work of calculating power potential consumption provided by worker per month
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyPowerConsumptionPerWorker() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyPowerConsumptionPerWorker(300), 24900);
         assertEquals(costExploration.calcChargesMonthlyPowerConsumptionPerWorker(123), 10209);
@@ -92,6 +113,10 @@ public class CostExplorationTest {
         }
     }
 
+    /**
+     * testing proper work of calculating power potential consumption provided by building area per month
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyPowerConsumptionPerMeterArea() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyPowerConsumptionPerMeterArea(28000), 5600);
         assertEquals(costExploration.calcChargesMonthlyPowerConsumptionPerMeterArea(9520), 1904);
@@ -104,6 +129,10 @@ public class CostExplorationTest {
         }
     }
 
+    /**
+     * testing proper work of calculating gastro monthly charges
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testChargesMonthlyGastroPerWorker() throws Exception {
         assertEquals(costExploration.calcChargesMonthlyGastroPerWorker(300), -19500);
         assertEquals(costExploration.calcChargesMonthlyGastroPerWorker(123), -7995);
@@ -116,6 +145,10 @@ public class CostExplorationTest {
         }
     }
 
+    /**
+     * testing proper work of calculating total monthly charges
+     * @throws Exception in case of invalid user input
+     */
     @Test public void testTotalChargesMonthly() throws Exception {
         assertEquals(costExploration.calcTotalChargesMonthly(42, 6,28000, 300), 124712);
         assertEquals(costExploration.calcTotalChargesMonthly(16, 3, 9750, 69), 44823);
@@ -145,7 +178,4 @@ public class CostExplorationTest {
             assertEquals(e.getMessage(), "Arguments have to be greater than 0!");
         }
     }
-
-
-
 }

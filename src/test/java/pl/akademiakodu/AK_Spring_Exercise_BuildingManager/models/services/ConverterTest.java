@@ -21,7 +21,7 @@ public class ConverterTest {
     }
 
     /**
-     * replace given string into integer
+     * testing proper working of replacing given string into integer
      * @throws Exception in case of given invalid user input
      */
     @Test public void testStringToInt() throws Exception {
@@ -54,7 +54,7 @@ public class ConverterTest {
     }
 
     /**
-     * replace given string into big integer
+     * testing proper working of replacing given string into big integer
      * @throws Exception in case of given invalid user input
      */
     @Test public void testStringToBigInt() throws Exception {

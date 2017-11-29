@@ -23,7 +23,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate total cost of building based on four key value given by user
+     * testing proper work of calculating total cost of building based on four key value given by user
      * @throws Exception
      */
     @Test public void testTotalBuildingCostCalculator() throws Exception {
@@ -35,7 +35,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate elevator need in the building
+     * testing proper work of calculating elevator need in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testElevatorNeed() throws Exception {
@@ -52,7 +52,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate total area of the building
+     * testing proper work of calculating total area of the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testAreaCalculator() throws Exception {
@@ -66,7 +66,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate straits need in the building
+     * testing proper work of calculating straits need in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testStraitsNeed() throws Exception {
@@ -91,7 +91,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate toilets need in the building
+     * testing proper work of calculating toilets need in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testToiletNeed() throws Exception {
@@ -108,7 +108,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate maximum capacity of worker in the building based on given law
+     * testing proper work of calculating maximum capacity of worker in the building based on given law
      * @throws Exception in case of invalid user input
      */
     @Test public void testPotentialWorker() throws Exception {
@@ -125,7 +125,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate room capacity in the building
+     * testing proper work of calculating room capacity in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testRoomCalculator() throws Exception {
@@ -148,7 +148,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate parking need in the building
+     * testing proper work of calculating parking need in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testParkingLevelNeed() throws Exception {
@@ -164,7 +164,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate service level need in the building
+     * testing proper work of calculating service level need in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testServiceLevelNeed() throws Exception {
@@ -180,7 +180,7 @@ public class BuildingManagerTest {
     }
 
     /**
-     * calculate gastro level need in the building
+     * testing proper work of calculating gastro level need in the building
      * @throws Exception in case of invalid user input
      */
     @Test public void testGastroLevelNeed() throws Exception {
