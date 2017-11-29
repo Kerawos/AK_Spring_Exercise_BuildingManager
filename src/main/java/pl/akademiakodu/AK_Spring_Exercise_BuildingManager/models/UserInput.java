@@ -1,5 +1,8 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
 
+/**
+ * stores necessary variables which will be used to calculate complete results.
+ */
 public class UserInput {
 
     private String width;
@@ -10,8 +13,10 @@ public class UserInput {
     public UserInput() {
     }
 
+    /**
+     * to create instance of user input
+     */
     public UserInput(String width, String length, String floors, String undergroundFloors) {
-
         this.width = width;
         this.length = length;
         this.floors = floors;

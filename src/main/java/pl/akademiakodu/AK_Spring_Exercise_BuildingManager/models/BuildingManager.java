@@ -2,6 +2,10 @@ package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
 
 import org.springframework.stereotype.Service;
 
+
+/**
+ *
+ */
 @Service
 public class BuildingManager {
 

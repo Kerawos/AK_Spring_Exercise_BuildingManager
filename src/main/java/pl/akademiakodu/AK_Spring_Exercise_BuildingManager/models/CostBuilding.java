@@ -1,12 +1,16 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
 
 import org.springframework.stereotype.Service;
-
 import java.math.BigInteger;
 
+/**
+ * to calculate build cost of building.
+ */
 @Service
 public class CostBuilding {
-
+    /**
+     * mainly material cost variable holders, example of real costs specified in specific period of time.
+     */
     private double areaMinimumIndicator = 1.2;
     private double undergroundLevelIndicator = 1.3;
     private int costMaterialFloorPerAreaMeter = 40;
@@ -18,12 +22,18 @@ public class CostBuilding {
     private int costGroundPerMeter = 1500;
     private int costLicenceBuilding = 35000;
     private int costEnvironmentPerLevel = 2400;
-
     private int limitOfFloors = 25;
     private int limitOfUndergroundFloors = 7;
     private int limitOfArea = 35000;
 
-
+    /**
+     *
+     * @param width given one of key variable to calculate cost of potential building
+     * @param length given one of key variable to calculate cost of potential building
+     * @param floors given one of key variable to calculate cost of potential building
+     * @param undergroundFloors given one of key variable to calculate cost of potential building
+     * @return total cost of potential building, including materials, scalable levels
+     */
     public BigInteger calcTotalCostOfBuilding(int width, int length, int floors, int undergroundFloors){
         BigInteger totalCost = new BigInteger("0");
         int areaLevel = width * length;
@@ -50,6 +60,12 @@ public class CostBuilding {
         return totalCost;
     }
 
+    /**
+     * larger and taller building need bigger and more solid foundation, in that case cost is scalable per building size
+     * @param areaLevel given level area of building
+     * @param floors given levels of building
+     * @return scalable cost of foundation
+     */
     public int calcCostOfFoundation(int areaLevel, int floors){
         if (floors<0 || areaLevel<1 || !checkArea(areaLevel) || !checkFloors(floors)){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -69,6 +85,11 @@ public class CostBuilding {
 
     }
 
+    /**
+     * 
+     * @param areaLevel
+     * @return
+     */
     public int calcBuildingArea(int areaLevel){
         if (areaLevel<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -182,7 +203,9 @@ public class CostBuilding {
     }
 
 
-    //getters
+    /**
+     * @getters variable holders
+     */
     public double getAreaMinimumIndicator() {
         return areaMinimumIndicator;
     }
