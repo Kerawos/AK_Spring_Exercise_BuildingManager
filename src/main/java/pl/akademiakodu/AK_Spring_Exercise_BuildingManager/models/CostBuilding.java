@@ -250,7 +250,7 @@ public class CostBuilding {
     public boolean checkUndergroundFloors(int undergroundFloor){
         return undergroundFloor > getLimitOfUndergroundFloors() ? false : true;
     }
-    
+
     /**
      * @getters variable holders
      */
