@@ -1,20 +1,24 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services;
 
+/**
+ * Imports section
+ */
 import org.springframework.stereotype.Service;
 import java.math.BigInteger;
 
 /**
- * this service is used to transform user input as string into requested variables
+ * This service is used to transform user input as string into requested variables
  */
 @Service
 public class Converter {
 
     /**
-     *
+     * Methods parse string into integer if possible
      * @param str takes any strings value
+      @throws IllegalArgumentException in case of user input error
      * @return result as required int if possible
      */
-    public int stringIntoInteger(String str){
+    public int stringIntoInteger(String str) throws IllegalArgumentException{
         int result;
         try {
             result = Integer.parseInt(str);
@@ -25,11 +29,12 @@ public class Converter {
     }
 
     /**
-     *
+     * Methods parse string into BigInteger if possible
      * @param str takes any strings value
+     * @throws IllegalArgumentException in case of user input error
      * @return result as required BigInteger if possible
      */
-    public BigInteger stringIntoBigInteger(String str){
+    public BigInteger stringIntoBigInteger(String str) throws IllegalArgumentException{
         BigInteger result;
         try {
             result = BigInteger.valueOf(stringIntoInteger(str));
@@ -38,6 +43,5 @@ public class Converter {
         }
         return result;
     }
-
 
 }

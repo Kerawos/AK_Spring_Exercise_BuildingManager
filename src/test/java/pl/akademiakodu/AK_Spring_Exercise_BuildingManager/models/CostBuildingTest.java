@@ -1,8 +1,12 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
 
+/**
+ * Imports section
+ */
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services.CostBuilding;
 
 import java.math.BigInteger;
 

@@ -5,11 +5,17 @@ package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
  */
 public class UserInput {
 
+    /**
+     * Variables declarations
+     */
     private String width;
     private String length;
     private String floors;
     private String undergroundFloors;
 
+    /**
+     * Constructors
+     */
     public UserInput() {
     }
 
@@ -23,6 +29,9 @@ public class UserInput {
         this.undergroundFloors = undergroundFloors;
     }
 
+    /**
+     * Getters and setters section
+     */
     public String getWidth() {
         return width;
     }

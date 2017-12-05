@@ -1,5 +1,8 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.controllers;
 
+/**
+ * Imports section
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,22 +10,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.Building;
-import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.BuildingManager;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services.BuildingManager;
 import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.UserInput;
 import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services.Converter;
 
+/**
+ * Control building exercise page
+ */
 @Controller
 public class BuildingCalculationController {
 
+    /**
+     * Declaration services and variables
+     */
     @Autowired private BuildingManager buildingManager;
-
     @Autowired private Converter converter;
 
+
+    /**
+     * Method responsible for loading requested building template also get user inputs and stored it into given model
+     * @param model stored user inputs as order request
+     * @return ready build template
+     */
     @GetMapping("/build") public String buildingGet(Model model){
         model.addAttribute("userInput", new UserInput());
         return "build";
     }
 
+    /**
+     * Method responsible for operating user inputs and manage it to cost calculations
+     * @param userInput stored user inputs as order request
+     * @param model holding calculations
+     * @return potential building cost
+     */
     @PostMapping("/build") public String buildingPost(@ModelAttribute("userInput") UserInput userInput, Model model){
         Building potentialBuilding = new Building();
         potentialBuilding = buildingManager.totalCostCalculator(converter.stringIntoInteger(userInput.getWidth()),

@@ -1,10 +1,14 @@
-package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
-
-import org.springframework.stereotype.Service;
+package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services;
 
 /**
- * general calculator of potential building. Show results are listed below as well as cost of building and later
- * exploration. Helps comparison to existing costs of e.g: lease to potential own building.
+ * Imports section
+ */
+import org.springframework.stereotype.Service;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.Building;
+
+/**
+ * Service responsible for general calculations of potential building. Show results are listed below as well as cost
+ * of building and later exploration. Helps comparison to existing costs of e.g: lease to potential own building.
  */
 @Service
 public class BuildingManager {
@@ -28,6 +32,7 @@ public class BuildingManager {
     private int gastroNeedPerLevel = 7;
 
     /**
+     * Method calculate area of one level in the building
      * @param width given of building
      * @param length given of building
      * @return area of one level on the building
@@ -40,6 +45,7 @@ public class BuildingManager {
     }
 
     /**
+     * Method calculate rooms in the building after gets area needs of other rooms
      * @param levelArea of the building
      * @param elevators in the building
      * @param toilets in the building
@@ -59,6 +65,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many elevators building should have
      * @param levelArea of the building
      * @param floors in the building
      * @return needed elevators
@@ -74,6 +81,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many straits building should have
      * @param levelArea of the building
      * @param floors in the building
      * @return needed straits
@@ -90,6 +98,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many parking levels building should have
      * @param floors in the building
      * @return needed parking levels
      */
@@ -102,6 +111,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many service levels building should have
      * in this example office level are core of building as a office building, service levels are responsible of
      * security, cleanliness, deposits, cloakrooms etc..
      * @param officeLevel in the building
@@ -115,6 +125,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many gastro levels building should have
      * almost in every office gastro is needed.
      * @param floors in the building
      * @return potential needed gastros
@@ -127,6 +138,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many toilets building should have
      * @param rooms in the building
      * @return needed toilets
      */
@@ -138,6 +150,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate how many workers building can store
      * @param rooms in the building
      * @return potential worker maximum capacity accepted by given law
      */
@@ -149,6 +162,7 @@ public class BuildingManager {
     }
 
     /**
+     * Methods calculate total building area
      * @param width on the building
      * @param length on the building
      * @param floors in the building
@@ -215,7 +229,7 @@ public class BuildingManager {
 
 
     /**
-     * @getters variable holders
+     * @getters section
      */
     public int getInstallationSpace() {
         return installationSpace;

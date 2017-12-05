@@ -1,10 +1,13 @@
-package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
+package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services;
 
+/**
+ * Imports section
+ */
 import org.springframework.stereotype.Service;
 import java.math.BigInteger;
 
 /**
- * to calculate build cost of building.
+ * Service responsible for calculate build cost of building.
  */
 @Service
 public class CostBuilding {
@@ -27,7 +30,7 @@ public class CostBuilding {
     private int limitOfArea = 35000;
 
     /**
-     *
+     * Methods calculate total cost of building
      * @param width given one of key variable to calculate cost of potential building
      * @param length given one of key variable to calculate cost of potential building
      * @param floors given one of key variable to calculate cost of potential building
@@ -86,6 +89,7 @@ public class CostBuilding {
     }
 
     /**
+     * Methods calculating building area
      * @param areaLevel given area of building level
      * @return minimum area for building
      */
@@ -100,6 +104,7 @@ public class CostBuilding {
     }
 
     /**
+     * Methods calculating cost of the ground area of building
      * @param buildingArea given area of building level
      * @return cost of minimum area needed to build building
      */
@@ -111,6 +116,7 @@ public class CostBuilding {
     }
 
     /**
+     * Methods calculating cost of environment of the building size
      * @param floors given total floors in the building
      * @return cost of environment tax depend of given building levels
      */
@@ -125,6 +131,7 @@ public class CostBuilding {
     }
 
     /**
+     *  Methods calculating cost of the roof
      * @param areaLevel given one level area of building
      * @return cost of last floor ceiling and roof
      */
@@ -139,6 +146,7 @@ public class CostBuilding {
     }
 
     /**
+     *  Methods calculating cost of the electronics
      * @param areaLevel given one level area of building
      * @return potential cost of office average quality electronics
      */
@@ -153,6 +161,7 @@ public class CostBuilding {
     }
 
     /**
+     *  Methods calculating cost of installations
      * @param areaLevel given one level area of building
      * @return potential cost of cables, tubes, ventilation, sensors etc..
      */
@@ -167,6 +176,7 @@ public class CostBuilding {
     }
 
     /**
+     *  Methods calculating cost of material of each floor
      * @param areaLevel given one level area of building
      * @return cost of potential one floor level
      */
@@ -181,6 +191,7 @@ public class CostBuilding {
     }
 
     /**
+     *  Methods calculating cost of walls each floor
      * @param width of building
      * @param length of building
      * @param floors of building
@@ -200,6 +211,7 @@ public class CostBuilding {
     }
 
     /**
+     *  Methods calculating cost of underground levels
      * underground levels are specified, cause of specific cost which raise fast per every deeper level.
      * @param width of building
      * @param length of building
@@ -227,6 +239,7 @@ public class CostBuilding {
     }
 
     /**
+     * Methods check if area of building fit standards
      * @param areaLevel given one level area of building
      * @return information if potential area of building fits building space established standards
      */
@@ -235,6 +248,7 @@ public class CostBuilding {
     }
 
     /**
+     * Methods check if floors of building fit standards
      * @param floor given building floors
      * @return information if potential building height fits building established standards
      */
@@ -243,6 +257,7 @@ public class CostBuilding {
     }
 
     /**
+     * Methods check if underground floors of building fit standards
      * in some places investors cannot dig under specified level to protect nearby buildings and deposits of e.g: ore
      * @param undergroundFloor given underground floors
      * @return information if potential building underground levels fits building established standards
@@ -252,7 +267,7 @@ public class CostBuilding {
     }
 
     /**
-     * @getters variable holders
+     * @Getters section
      */
     public double getAreaMinimumIndicator() {
         return areaMinimumIndicator;

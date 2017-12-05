@@ -1,9 +1,12 @@
-package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models;
+package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services;
 
+/**
+ * Imports section
+ */
 import org.springframework.stereotype.Service;
 
 /**
- * to calculate cost of later exploration of building.
+ * Service responsible for calculate cost of later exploration of building.
  */
 @Service
 public class CostExploration {
@@ -20,6 +23,7 @@ public class CostExploration {
     private int chargesMonthlyGastroPerWorker = -65;
 
     /**
+     * Methods calculate cost of total monthly charges
      * @param totalToilets as a part of noticeable building cost
      * @param totalElevators as a part of noticeable building cost
      * @param totalBuildingArea one of most important exploration cost, key value
@@ -40,6 +44,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of tas per meter area
      * @param totalBuildingArea given square meter space of the building
      * @return cost of potential tax result of building area
      */
@@ -51,6 +56,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of all toilets in the building
      * @param toilets given toilets in the building
      * @return cost of potential using area
      */
@@ -62,6 +68,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of elevators
      * @param elevators given elevators in the building
      * @return cost of potential using area
      */
@@ -73,6 +80,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of monthly charges per area meter
      * @param totalBuildingArea given square meter space of the building
      * @return cost of potential using area
      */
@@ -84,6 +92,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of media monthly charges
      * @param totalBuildingArea given square meter space of the building
      * @return cost of potential media
      */
@@ -95,6 +104,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of power consumption charges per worker per month
      * @param totalWorkers given workers, working in the building
      * @return cost of potential power consumption provided by a all workers
      */
@@ -106,6 +116,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of power consumption charges per meter building area per month
      * @param totalBuildingArea given square meter space of the building
      * @return cost of potential power consumption provided by building area
      */
@@ -117,6 +128,7 @@ public class CostExploration {
     }
 
     /**
+     * Methods calculate cost of monthly gastro level
      * @param totalWorkers given workers, working in the building
      * @return cost of potential charges result of all workers in the building
      */
@@ -128,7 +140,7 @@ public class CostExploration {
     }
 
     /**
-     * @getters variable holders
+     * @Getters section
      */
     public int getChargesMonthlyPerToilet() {
         return chargesMonthlyPerToilet;
