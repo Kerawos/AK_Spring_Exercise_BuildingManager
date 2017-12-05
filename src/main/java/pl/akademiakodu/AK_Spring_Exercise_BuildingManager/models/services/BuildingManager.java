@@ -16,20 +16,20 @@ public class BuildingManager {
     /**
      * variable holder, example of real needs, taxes
      */
-    private int installationSpace = 4;
-    private int toiletsSpace = 30;
-    private int straitsSpace = 20;
-    private int roomSpace = 40;
-    private int elevatorSpace = 5;
-    private double elevatorNeedPerLevel = 0.01;
-    private double elevatorNeedPerArea10 = 0.02;
-    private double straitsNeedPerArea50 = 0.07;
-    private double emptyAreaNeedPerArea = 0.25;
-    private double toiletNeedPerRoom = 0.3;
-    private int workerAreaNeed = 4;
-    private int parkingNeedPerOfficeLevel = 6;
-    private int servicesNeedPerOfficeLevel = 5;
-    private int gastroNeedPerLevel = 7;
+    private final int installationSpace = 4;
+    private final int toiletsSpace = 30;
+    private final int straitsSpace = 20;
+    private final int roomSpace = 40;
+    private final int elevatorSpace = 5;
+    private final double elevatorNeedPerLevel = 0.01;
+    private final double elevatorNeedPerArea10 = 0.02;
+    private final double straitsNeedPerArea50 = 0.07;
+    private final double emptyAreaNeedPerArea = 0.25;
+    private final double toiletNeedPerRoom = 0.3;
+    private final int workerAreaNeed = 4;
+    private final int parkingNeedPerOfficeLevel = 6;
+    private final int servicesNeedPerOfficeLevel = 5;
+    private final int gastroNeedPerLevel = 7;
 
     /**
      * Method calculate area of one level in the building

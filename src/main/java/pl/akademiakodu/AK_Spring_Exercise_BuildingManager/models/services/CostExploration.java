@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class CostExploration {
     /**
-     * exploration cost variable holders, example of real costs specified in specific period of time.
+     * Exploration cost variable holders, example of real costs specified in specific period of time.
      */
-    private double taxPerMeterArea = 0.5;
-    private int chargesMonthlyPerToilet = 240;
-    private int chargesMonthlyPerElevator = 1872;
-    private double chargesMonthlyPerAreaMeter = 0.6;
-    private double chargesMonthlyMediaPerAreaMeter = 2.2;
-    private int chargesMonthlyPowerConsumptionPerWorker = 83;
-    private double chargesMonthlyPowerConsumptionPerMeterArea = 0.2;
-    private int chargesMonthlyGastroPerWorker = -65;
+    private final double taxPerMeterArea = 0.5;
+    private final int chargesMonthlyPerToilet = 240;
+    private final int chargesMonthlyPerElevator = 1872;
+    private final double chargesMonthlyPerAreaMeter = 0.6;
+    private final double chargesMonthlyMediaPerAreaMeter = 2.2;
+    private final int chargesMonthlyPowerConsumptionPerWorker = 83;
+    private final double chargesMonthlyPowerConsumptionPerMeterArea = 0.2;
+    private final int chargesMonthlyGastroPerWorker = -65;
 
     /**
      * Methods calculate cost of total monthly charges

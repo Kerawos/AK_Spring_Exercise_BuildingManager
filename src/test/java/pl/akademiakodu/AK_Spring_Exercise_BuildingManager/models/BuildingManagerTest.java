@@ -16,13 +16,11 @@ public class BuildingManagerTest {
 
     private static BuildingManager buildingManager;
 
-    @BeforeClass
-    public static void start() {
+    @BeforeClass public static void start() {
         buildingManager = new BuildingManager();
     }
 
-    @AfterClass
-    public static void stop() throws Exception {
+    @AfterClass public static void stop() throws Exception {
         buildingManager = null;
     }
 

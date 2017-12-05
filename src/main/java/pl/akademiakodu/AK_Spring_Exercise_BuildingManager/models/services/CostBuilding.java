@@ -12,22 +12,22 @@ import java.math.BigInteger;
 @Service
 public class CostBuilding {
     /**
-     * mainly material cost variable holders, example of real costs specified in specific period of time.
+     * Mainly material cost variable holders, example of real costs specified in specific period of time.
      */
-    private double areaMinimumIndicator = 1.2;
-    private double undergroundLevelIndicator = 1.3;
-    private int costMaterialFloorPerAreaMeter = 40;
-    private int costMaterialRoofPerAreaMeter = 90;
-    private int costMaterialWallPerMeter = 52;
-    private int costInstallationPerAreaMeter = 19;
-    private int costElectronicsPerAreaMeter = 130;
-    private double costFoundationPerFloor = 1.2;
-    private int costGroundPerMeter = 1500;
-    private int costLicenceBuilding = 35000;
-    private int costEnvironmentPerLevel = 2400;
-    private int limitOfFloors = 25;
-    private int limitOfUndergroundFloors = 7;
-    private int limitOfArea = 35000;
+    private final double areaMinimumIndicator = 1.2;
+    private final double undergroundLevelIndicator = 1.3;
+    private final int costMaterialFloorPerAreaMeter = 40;
+    private final int costMaterialRoofPerAreaMeter = 90;
+    private final int costMaterialWallPerMeter = 52;
+    private final int costInstallationPerAreaMeter = 19;
+    private final int costElectronicsPerAreaMeter = 130;
+    private final double costFoundationPerFloor = 1.2;
+    private final int costGroundPerMeter = 1500;
+    private final int costLicenceBuilding = 35000;
+    private final int costEnvironmentPerLevel = 2400;
+    private final int limitOfFloors = 25;
+    private final int limitOfUndergroundFloors = 7;
+    private final int limitOfArea = 35000;
 
     /**
      * Methods calculate total cost of building
@@ -64,7 +64,7 @@ public class CostBuilding {
     }
 
     /**
-     * larger and taller building need bigger and more solid foundation, in that case cost is scalable per building size
+     * Larger and taller building need bigger and more solid foundation, in that case cost is scalable per building size
      * @param areaLevel given level area of building
      * @param floors given levels of building
      * @return scalable cost of foundation
